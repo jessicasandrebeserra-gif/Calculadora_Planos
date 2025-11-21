@@ -23,12 +23,12 @@ body {
     /*Centralizar os meus itens horizontalmente*/
     width: 100%;
     /*Definição da largura*/
-    min-height: auto;
-    max-height: auto;
+    min-height: 100vh;
+    /* Uso de 100vh para que ocupe a altura total da viewport */
     /*Definição da altura*/
     background-color: #18181b;
     /*Cor de fundo*/
-   
+
 }
 
 /*Conteiner principal (imagem e calculadora*/
@@ -39,8 +39,13 @@ body {
     /*Centralizar os meus itens verticalmente*/
     gap: 1rem;
     /*Espaço entre a imagem e a calculadora*/
-
+    max-width: 1200px;
+    /*  Define uma largura máxima para o layout principal */
+    width: 90%;
+    /*  Garante que ocupe 90% da tela em larguras abaixo de 1200px */
 }
+
+
 
 /*Imagem ilustração*/
 #img img {
@@ -259,12 +264,12 @@ body {
 #plano-vantajoso {
     margin-top: 0.5rem;
     /**/
-     padding: 5px;
+    padding: 5px;
     /**/
     background-color: #3f3f46;
     /* Fundo para destacar o melhor plano */
     border-radius: 6px;
-    
+
     /**/
 }
 
@@ -284,41 +289,57 @@ body {
     /**/
 }
 
-/* RESPONSIVIDADE - Telas menores que 1024px (Tablets e Celulares) */
+/* RESPONSIVIDADE - Telas menores que 1024px (Tablets e Desktops menores) */
 @media (max-width: 1024px) {
     #container {
         flex-direction: column;
-        /* Empilha os elementos verticalmente */
         gap: 2rem;
-        max-width: 90%;
-        /* Ocupa mais espaço horizontal da tela */
+        /* max-width: 90%; (Já definido no CSS principal ou pode ser mantido aqui) */
+        width: 90%;
+        /* Garantindo que ocupe 90% */
         margin: 20px auto;
+        /* Adicionado padding para afastar o container das bordas da tela */
+        padding: 1rem;
     }
 
-    #img,
-    #calculadora {
-        flex: 1 1 100%;
-        /* Ocupa 100% da largura em telas pequenas */
-    }
-
+    /* Ocultar ou diminuir a seção da imagem em telas menores para dar foco à calculadora */
     #img {
         order: 1;
-        /* Coloca a imagem no topo */
+        /* display: none; <-- Você pode optar por ocultar totalmente */
     }
 
     #img img {
-        max-width: 70%;
-        /* Reduz a largura da imagem para não ser muito grande em mobile */
+        max-width: 80%;
+        /* Ajustado para 80% */
+        height: auto;
     }
 
     #calculadora {
         order: 2;
-        /* Coloca a calculadora abaixo da imagem */
+        width: 100%;
+        /* Garante que a calculadora ocupe toda a largura do container */
         padding: 1.5rem;
     }
 
     #titulo {
-        font-size: 1.8rem;
-        /* Reduz o tamanho do título para caber melhor */
+        font-size: 1.6rem;
+        /* Ajuste o tamanho da fonte para o novo layout */
+        text-align: center;
+        /* Centralizar o título */
+    }
+
+    /* Ajuste para centralizar o pseudo-elemento do título em telas menores */
+    #titulo::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .output-section h2,
+    .output-section h3 {
+        text-align: center;
+    }
+
+    .output-section p {
+        text-align: center;
     }
 }
