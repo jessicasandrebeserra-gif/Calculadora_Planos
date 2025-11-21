@@ -28,7 +28,7 @@ body {
     /*Definição da altura*/
     background-color: #18181b;
     /*Cor de fundo*/
-    overflow: hidden;
+   
 }
 
 /*Conteiner principal (imagem e calculadora*/
@@ -37,33 +37,27 @@ body {
     /*centralizar o meu conteúdo*/
     align-items: center;
     /*Centralizar os meus itens verticalmente*/
-    gap: 0.5rem;
+    gap: 1rem;
     /*Espaço entre a imagem e a calculadora*/
 
 }
 
 /*Imagem ilustração*/
 #img img {
-    min-height: auto;
-    height: 100vh;
-    object-fit: contain;
+    width: 700px;
     /*Definição da largura da imagem*/
 
 }
 
 /*Elementos principais da calculadora e formulario*/
 #calculadora {
-    max-height: max-content;
-    min-height: min-content;
-    height: max-content;
-    width: 100%;
     display: flex;
     /*Organizar os elementos verticalmente*/
     flex-direction: column;
     /*Define a direção vertical para os itens filhos*/
     gap: 0.5rem;
     /*Espaço etre os elementos filhos*/
-    padding: 0.5rem;
+    padding: 1.5rem;
     /*Preenchimento interno*/
     color: #f8fafc;
     /*Cor do meu texto*/
@@ -86,7 +80,7 @@ body {
 
 /*Meu titulo*/
 #titulo {
-    font-size: 2.25rem;
+    font-size: 1.30rem;
     /*Tamanho da fonte*/
     position: relative;
     /*Posicionar o pseudo-elemento ::after*/
@@ -119,7 +113,7 @@ body {
     /* Tamanho da fonte. */
     color: #cbd5e1;
     /*Cor do texto*/
-    font-weight: 500;
+    font-weight: 300;
     /*Espessura da fonte*/
 }
 
@@ -133,9 +127,9 @@ body {
     /*Distribui o espaço entre os elementos*/
     background-color: #3f3f46;
     /*Cor de fundo*/
-    padding: 0.3rem;
+    padding: 0.1rem;
     /*Preenchimento interno pequeno*/
-    margin-top: 3px;
+    margin-top: 0.5px;
     /*Pequena margem superior*/
 }
 
@@ -144,7 +138,7 @@ body {
 .input-field i {
     color: #cbd5e1;
     /*Cor do ícone/texto de unidade*/
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     /*Tamanho da fonte*/
     padding: 0.6rem 1rem;
     /*Preenchimento interno para aumentar a área de clique e visualização*/
@@ -158,7 +152,7 @@ body {
     /*Remove a borda padrão*/
     width: 100%;
     /*Ocupa toda a largura disponível*/
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     /*Tamanho da fonte*/
     color: #f8fafc;
     /*Cor do texto digitado*/
@@ -184,9 +178,9 @@ body {
     /*Ocupa a largura do meu contêiner */
     border: none;
     /*Remover borda*/
-    padding: 0.75rem 1.25rem;
+    padding: 0.50rem 1.15rem;
     /* Preenchimento para altura e largura do meu botão*/
-    font-size: 1.25rem;
+    font-size: 1.20rem;
     /**/
     font-weight: bold;
     /**/
@@ -212,9 +206,9 @@ body {
 
 /*Tabela e melhor plano*/
 .output-section {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     /**/
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     /**/
     border-top: 1px solid #3f3f46;
     /* Linha divisória sutil */
@@ -227,6 +221,7 @@ body {
     /* Cor de destaque verde */
     margin-bottom: 0.5rem;
     /**/
+    font-size: 1.30rem;
 }
 
 /*Tabela de preços*/
@@ -235,7 +230,7 @@ body {
     /**/
     border-collapse: collapse;
     /* Tira o espaço entre as células */
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     /**/
 }
 
@@ -244,7 +239,7 @@ body {
 #tabela-precos td {
     border: 1px solid #3f3f46;
     /* Borda da célula na cor escura */
-    padding: 10px;
+    padding: 5px;
     /**/
     text-align: left;
     /**/
@@ -262,13 +257,14 @@ body {
 
 /*Seçao de destaque do melhor plano*/
 #plano-vantajoso {
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
     /**/
-    padding: 1rem;
+     padding: 5px;
     /**/
     background-color: #3f3f46;
     /* Fundo para destacar o melhor plano */
     border-radius: 6px;
+    
     /**/
 }
 
@@ -276,7 +272,7 @@ body {
 #plano-vantajoso h3 {
     color: #f8fafc;
     /**/
-    font-size: 1.25rem;
+    font-size: 1.20rem;
     /**/
 }
 
