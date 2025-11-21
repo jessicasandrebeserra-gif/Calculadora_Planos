@@ -42,20 +42,21 @@ body {
 
 /*Imagem ilustração*/
 #img img {
-    width: 35rem;
+    width: 1200px;
     /*Definição da largura da imagem*/
 
 }
 
 /*Elementos principais da calculadora e formulario*/
 #calculadora {
+    width: 50rem;
     display: flex;
     /*Organizar os elementos verticalmente*/
     flex-direction: column;
     /*Define a direção vertical para os itens filhos*/
-    gap: 2rem;
+    gap: 0.5rem;
     /*Espaço etre os elementos filhos*/
-    padding: 2rem;
+    padding: 0.5rem;
     /*Preenchimento interno*/
     color: #f8fafc;
     /*Cor do meu texto*/
