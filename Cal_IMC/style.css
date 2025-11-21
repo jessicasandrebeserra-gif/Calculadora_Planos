@@ -23,10 +23,12 @@ body {
     /*Centralizar os meus itens horizontalmente*/
     width: 100%;
     /*Definição da largura*/
-    height: 100vg;
+    min-height: auto;
+    max-height: auto;
     /*Definição da altura*/
     background-color: #18181b;
     /*Cor de fundo*/
+    overflow: hidden;
 }
 
 /*Conteiner principal (imagem e calculadora*/
@@ -35,21 +37,26 @@ body {
     /*centralizar o meu conteúdo*/
     align-items: center;
     /*Centralizar os meus itens verticalmente*/
-    gap: 2rem;
+    gap: 0.5rem;
     /*Espaço entre a imagem e a calculadora*/
 
 }
 
 /*Imagem ilustração*/
 #img img {
-    width: 1200px;
+    min-height: auto;
+    height: 100vh;
+    object-fit: contain;
     /*Definição da largura da imagem*/
 
 }
 
 /*Elementos principais da calculadora e formulario*/
 #calculadora {
-    width: 50rem;
+    max-height: max-content;
+    min-height: min-content;
+    height: max-content;
+    width: 100%;
     display: flex;
     /*Organizar os elementos verticalmente*/
     flex-direction: column;
@@ -73,7 +80,7 @@ body {
     /*Organiza os campos do formulario na vertical*/
     flex-direction: column;
     /**/
-    gap: 2rem;
+    gap: 0.5rem;
     /*Espaço etre os elementos filhos*/
 }
 
