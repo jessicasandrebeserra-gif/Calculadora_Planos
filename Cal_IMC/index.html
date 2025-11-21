@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/x-icon" href="imagens/graph.png">
+     <title>Calculadora de Plano de Saúde</title>
+     <link rel="stylesheet" href="style.css">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+     <main id="container">
+
+          <section id="img">
+               <img src="/imagens/img_ilustração-removebg-preview.png" alt="imagem ilustração">
+          </section>
+
+          <section id="calculadora">
+               <form id="form">
+                    <h1 id="titulo">
+                         Calculadora de Planos de Saúde (Baseado em IMC)
+                    </h1>
+
+                    <div class="input-box">
+                         <label for="idade">Idade (anos)</label>
+                         <div class="input-field">
+                              <i class="fa-solid fa-calendar"></i>
+                              <input type="number" id="idade" value="" required min="18">
+                              <span>
+                                   anos
+                              </span>
+
+                         </div>
+                    </div>
+
+                    <div class="input-box">
+                         <label for="peso">Peso (Kg)</label>
+                         <div class="input-field">
+                              <i class="fa-solid fa-weight-scale"></i>
+                              <input type="number" id="peso" value="" required min="1">
+                              <span>
+                                   kg
+                              </span>
+
+                         </div>
+                    </div>
+
+                    <div class="input-box">
+                         <label for="altura">Altura (metros)</label>
+                         <div class="input-field">
+                              <i class="fa-solid fa-ruler"></i>
+                              <input type="number" id="altura" value="" required min="0.5">
+                              <span>
+                                   m
+                              </span>
+
+                         </div>
+
+
+                    </div>
+
+               </form>
+
+               <div id="calcular">
+                    <button onclick="calcularPlanos()">Calcular</button>
+               </div>
+
+               <div class="output-section">
+                    <h2>Resultados do Cálculo</h2>
+
+                    <p>IMC: <span id="resultado-imc">--</span></p>
+                    <p>Fator de Comorbidade: <span id="resultado-fc">--</span></p>
+
+                    <h3>Tabela de Preços Comparativa</h3>
+                    <table id="tabela-precos">
+                         <thead>
+                              <tr>
+                                   <th>Plano</th>
+                                   <th>Operadora A (R$)</th>
+                                   <th>Operadora B (R$)</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                         </tbody>
+                    </table>
+
+                    <div id="plano-vantajoso">
+                         <h3>Plano Mais Vantajoso: <span id="melhor-plano-nome">--</span></h3>
+                         <p>Custo: <span id="melhor-plano-custo">R$ 0,00</span></p>
+                    </div>
+               </div>
+
+          </section>
+     </main>
+
+     <script src="calcular.js"></script>
+
+</body>
+
+</html>
