@@ -1,7 +1,7 @@
-//A função principal é chamada quando o botão "Calcular Planos" é clicado no HTML.
+//função principal  chamada quando o botão "Calcular Planos" é clicado no HTML.
 function calcularPlanos() {
-     // --- 1. Coleta de Dados do Usuário ---
-     // Pega os valores inseridos nos campos do formulário (HTML) usando seus IDs.
+
+     // Pega os valores inseridos nos campos do formulário.
      const idade = parseFloat(document.getElementById('idade').value);
      const peso = parseFloat(document.getElementById('peso').value);
      const altura = parseFloat(document.getElementById('altura').value);
@@ -12,32 +12,32 @@ function calcularPlanos() {
           return; // Para a execução se os dados forem inválidos.
      }
 
-     // --- 2. Cálculo do IMC ---
-     // Fórmula: IMC = Peso / (Altura * Altura)
+     // Cálculo do IMC (IMC = Peso / (Altura * Altura).
      const imc = peso / (altura ** 2);
 
-     // --- 3. Determinação do Fator de Comorbidade (FC) ---
+     // Determinar - Fator de Comorbidade (FC) ---
      // Chama a função auxiliar para obter o FC com base no IMC.
      const fc = determinarFatorComorbidade(imc);
 
-     // --- 4. e 5. Cálculo dos Preços ---
+     //Cálculo dos Preços A e B.
      // Calcula os 3 planos da Operadora A (usa idade e imc).
      const precosA = calcularPlanosA(idade, imc);
+
      // Calcula os 3 planos da Operadora B (usa fc e imc).
      const precosB = calcularPlanosB(fc, imc);
 
      // Combina todos os 6 preços em um único objeto para facilitar a comparação.
      const todosPrecos = { ...precosA, ...precosB };
 
-     // --- 6. Comparação e Determinação do Plano Mais Vantajoso ---
+     //Comparação e Determinação do Plano Mais Vantajoso
      const { nome, custo } = encontrarMelhorPlano(todosPrecos);
 
-     // --- 7. Exibição dos Resultados ---
+     //Exibir Resultados.
      // Chama a função para atualizar a interface do usuário (HTML) com todos os resultados.
      exibirResultados(imc, fc, todosPrecos, nome, custo);
 }
 
-//  Mapeia o IMC ao Fator de Comorbidade conforme as regras do projeto.
+//Mapeia o IMC ao Fator de Comorbidade conforme as regras do projeto.
 function determinarFatorComorbidade(imc) {
      if (imc < 18.5) return 10;
      if (imc >= 18.5 && imc <= 24.9) return 1;   // Normal (FC=1, o menor)
@@ -48,7 +48,7 @@ function determinarFatorComorbidade(imc) {
      return 30; // Obesidade Mórbida (FC=30, o maior)
 }
 
-//  Calcula os preços da Operadora A.
+// Calcula os preços da Operadora A.
 // A Operadora A usa a IDADE e o IMC.
 function calcularPlanosA(idade, imc) {
      // Plano Básico A: 100 + (idade * 10) * (IMC / 10)
@@ -56,6 +56,7 @@ function calcularPlanosA(idade, imc) {
 
      // Plano Standard A: (150 + (idade * 15)) * (imc / 10);
      const standard = (150 + (idade * 15)) * (imc / 10);
+
      // Plano Premium A: (200 - (imc * 10) + (idade * 20)) * (imc / 10);
      const premium = (200 + (imc * 10) + (idade * 20)) * (imc / 10);
 
@@ -74,7 +75,7 @@ function calcularPlanosB(fc, imc) {
 
      // Plano Standard B: (150 + (fc * 15)) * (imc / 10);
      const standard = (150 + (fc * 15)) * (imc / 10);
-    
+
      // Plano Premium B: (200 - (imc * 10) + (fc * 20)) * (imc / 10);
      const premium = (200 + (imc * 10) + (fc * 20)) * (imc / 10);
 
@@ -88,7 +89,7 @@ function calcularPlanosB(fc, imc) {
 //  Percorre todos os preços e encontra o menor.
 function encontrarMelhorPlano(precos) {
      let melhorPlanoNome = '';
-     let menorCusto = Infinity; // Inicializa com o maior valor possível para garantir a primeira comparação.
+     let menorCusto = Infinity; // Inicializa com o maior valor para a primeira comparação.
 
      // Itera sobre todas as chaves (nomes dos planos) no objeto 'precos'.
      for (const nome in precos) {
@@ -106,7 +107,7 @@ function encontrarMelhorPlano(precos) {
 //  Atualiza o HTML para mostrar os resultados ao usuário.
 function exibirResultados(imc, fc, precos, melhorPlanoNome, melhorPlanoCusto) {
 
-     // Atualiza os valores do IMC e FC na seção "Dados Calculados".
+     // Atualiza os valores do IMC e FC.
      document.getElementById('resultado-imc').textContent = imc.toFixed(2); //  2 casas decimais.
      document.getElementById('resultado-fc').textContent = fc;
 
@@ -115,7 +116,7 @@ function exibirResultados(imc, fc, precos, melhorPlanoNome, melhorPlanoCusto) {
      // Formata o custo como moeda (R$) com 2 casas decimais e vírgula.
      document.getElementById('melhor-plano-custo').textContent = `R$ ${melhorPlanoCusto.toFixed(2).replace('.', ',')}`;
 
-     // Preencher a Tabela de Preços 
+     // Preenche a Tabela de Preços 
      const tabelaBody = document.querySelector('#tabela-precos tbody');
      tabelaBody.innerHTML = ''; // Limpa as linhas anteriores da tabela.
 
